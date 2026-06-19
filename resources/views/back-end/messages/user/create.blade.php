@@ -6,28 +6,37 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-           <form method="POST">
+           <form method="POST" class="formCreateUser">
 
                 <div class="form-group">
-                   <label for="">username</label>
-                   <input type="text" name="name" class=" form-control" id="">
-                </div>
+   <label for="">Username</label>
+   <input type="text" name="name" class="name form-control">
+   <p></p>
+</div>
 
-                <div class="form-group">
-                  <label for="">email</label>
-                  <input type="email" name="email" class=" form-control" id="">
-                </div>
+<div class="form-group">
+   <label for="">Email</label>
+   <input type="email" name="email" class="email form-control">
+   <p></p>
+</div>
 
-                <div class="form-group">
-                  <label for="">password</label>
-                  <input type="password" name="password" class="form-control" id="">
-                </div>
+<div class="form-group">
+   <label for="">Password</label>
+   <input type="password" name="password" class="password form-control">
+   <p></p>
+</div>
 
-           </form>
+<div class="form-group">
+   <label for="">Role</label>
+   <select name="role" class="form-control role">
+      <option value="1">Admin</option>
+      <option value="0">User</option>
+   </select>
+</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save</button>
+          <button type="button" onclick="StoreUser('.formCreateUser')" class="btn btn-primary">Save</button>
         </div>
       </div>
     </div>

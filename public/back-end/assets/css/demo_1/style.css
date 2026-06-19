@@ -748,3 +748,54 @@
     display: none; }
 
 /*# sourceMappingURL=style.css.map */
+.form-group{
+  position: relative;
+}
+.btn_upload{
+  position: absolute;
+  bottom:0;
+  right: 0;
+}
+.show-image-category {
+  position: relative;
+}
+.btn_cancel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#searchBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 13px 20px;
+}
+
+.search_icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.show-profile {
+  position: relative;
+}
+
+.show-profile > img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid black;
+}
+
+.show-profile > .choose {
+  position: absolute;
+  bottom: 50px;
+  left: 90px;
+  background-color: #454444;
+  color: rgb(10, 10, 10);
+  padding: 10px;
+  border-radius: 10px;
+}

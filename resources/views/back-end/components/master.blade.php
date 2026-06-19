@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
@@ -12,12 +13,26 @@
     <link rel="stylesheet" href="{{ asset('back-end/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back-end/assets/vendors/css/vendor.bundle.base.css') }}">
     <link rel="stylesheet" href="{{ asset('back-end/assets/vendors/css/vendor.bundle.addons.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     
     <link rel="stylesheet" href="{{ asset('back-end/assets/css/shared/style.css') }}">
   
     <link rel="stylesheet" href="{{ asset('back-end/assets/css/demo_1/style.css') }}">
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="{{ asset('back-end/assets/images/favicon.ico') }}" />
+
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Toastify messages -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    {{-- Select 2 --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+    @yield('styles')
+
   </head>
   <body>
     <div class="container-scroller">
@@ -55,6 +70,24 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+
+    
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalSearch" tabindex="-5" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered" style="max-width: 40%">
+        <div class="modal-content">
+          <div class="modal-body p-4 mt-3">
+              <div class="form-group">
+                  <input type="text" class=" form-control" style="padding: 20px;" name="search" id="searchBox" placeholder="Search items here....">
+                  <button type="button" class="btn btn-primary btn-sm ml-2 searchBtn" id="searchBtn">Search</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- container-scroller -->
 
     <!-- plugins:js -->
@@ -74,5 +107,43 @@
     {{-- Boostrap 5.2 start --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     {{-- Boostrap 5.2 end --}}
+
+    <!-- Jquery link script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Toastify messages -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    {{-- Select 2 script --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> 
+
+    <script>
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+       });
+
+       const Message = (message,status=true) => {
+        Toastify({
+            text: `${message}`,
+            duration: 2000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background:"linear-gradient(to right, #00b09b, #96c93d)"
+            },
+            onClick: function(){} // Callback after click
+        }).showToast();
+       }
+
+     
+    </script>
+
+    @yield("scripts")
   </body>
 </html>
